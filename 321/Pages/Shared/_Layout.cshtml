@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>123</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="styleshee " type="text/css" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    @* <js代码需要编写到script标签中> *@
+    <script>
+        ////控制浏览器弹出一个警告框
+        //alert(`这是我的第一个js代码`);
+        ////让计算机在页面中输出一个内容
+        ////document.write()可以向body中输出一个内容
+        //document.write(`可以向body中输出一个内容`);
+        ////向控制台输出一个内容；
+        ////console.log()的作用是向控制台输出一个内容
+        //console.log(`控制台中出来`);
+        ///*在js中可以自主命名的称为标识符
+        // 例如：变量名，函数名，属性名都属于标识符
+        // 命名一个标识符必须遵循如下规则
+        // 1.标识符可以含有字母  数字  $   _
+        // 2.标识符不能以数字开头
+        // 3.标识符不能是es的关键字或保留字
+        // js底层保存标识符时实际上是采用的Unicode编码
+
+
+
+        /*数据类型指的就是字面量的类型
+         * 在js中一共有六种数据类型
+         * string 字符串
+         * Number 数值
+         * Boolean 布尔值
+         * Null 空值
+         * Undefined 未定义
+         * Object 对象
+
+         * 其中String Number Boolean null undefined nan 属于基本数据类型
+         * 而object属于引用数据类型*/
+        /*string 字符串
+         * -在js中字符串需要用引号引起来
+         * 使用双引号或单引号都可以，但是不要混着用。
+         * 引号不能嵌套，双引号不能放双引号，单引号不能放单引号。
+         * 在字符串中可以使用\作为转义字符
+         *   当表示一些特殊符号时可以使用\进行转义
+         *   \"表示"
+         *   \`表示`
+         *   \n表示换行
+         *   \t表示制表符
+         *   \\表示\
+         *   */
+        /*在js中所有的数值都是number类型
+         * 包括整数和浮点数（小数）
+         * 可以用运算符typeof 来检查一个变量的类型
+         * 语法：typeof 变量
+         * 检查字符串时，会返回string
+         * 检查数值时会返回number
+         * 在js中可以表示数字的最大值
+         * number.max_value
+         * 如果使用number表示的数字超过了最大值。则会返回一个
+         * infinity表示正无穷
+         *-infinity表示负无穷
+         * 使用typeof检查infinity也会返回number
+         * nan是一个特殊的数字，表示not a number
+         * 使用typeof检查nan时也会返回number
+         * 在js中整数的运算基本可以保证精确
+         * 如果使用js进行浮点数运算，可能得到一个不精确的结果
+         * 所有千万不要使用js进行对精确度要求比较高的运算
+         *
+         * boolean  布尔值
+         * 布尔值只有两个，主要用来逻辑判断
+         * true 表示真
+         * false 表示假
+         * 使用typeof检查一个布尔值时，会返回Boolean
+         * null类型的值只有一个，就是null
+         * null这个值专门用来表示一个为空的对象
+         * 使用typeof检查一个null值时，会返回object
+         * undefined类型的值只有一个，就是undefined
+         * 当声明一个变量，但是并不给变量赋值时，它的值就是undefined
+         * 使用typeof检查一个undefined时也会返回undefined
+         *
+         * */
+
+
+
+        /*将其他数据类型转换为string
+         * 方式一：
+         * -调用被转换数据类型的方法：tostring（）
+         * -该方法不会影响原变量，它会将转换的结果返回
+         * -但是注意：null和undefined这两个值没有tostring。
+         * 如果调用他们的方法会报错
+         * 方式二：
+         * -调用String（）函数，并将被转换的数据作为参数传递给函数
+         * -使用String（）函数做强制类型转换时，
+         * 队友number和Boolean实际上就是调用的tostring（）方法
+         * 但是队友null个undefined，就不会调用tostring（）方法
+         * 它会将null直接转换为“null”
+         * 它会将undefined直接转换为“undefined”
+         * /
+         * 将其他数据类型转换为number
+         * 方式一：使用Number（）函数
+         * 字符串转数字
+         * 1.如果是纯数字字符串，则直接将其转换为数字
+         * 2.如果字符串中有非数字的内容，则转换为NAN
+         * 3.如果字符串时一个空串，或者是一个全是空格的字符串则转换为0
+         * 布尔转数字，
+         * true转成1
+         * false转成0
+         * null转成数字
+         * null转成0
+         * undefined转成数字，转成NAN
+         * 方式二
+         * 这种方式专门用来对付字符串
+         * parseInt()把一个字符串转换为一个整数（可以把一个字符串中的有效的整数内容取出来）
+         * parseFloat（）作用和parseInt类似，不同的是它可以获得有效的小数
+         *
+         * 运算符也叫操作符
+         * 通过运算符可以对一个或多个值进行运算，并获取运算结果
+         * 比如：typeof就是运算符，可以来获得一个值的类型
+         * 它会将该值的类型以字符串的形式返回
+         * 算数运算符：
+         *当对非number类型的值进行运算时，会将这些值转换为number然后进行运算
+         * 任何值和nan进行运算都会是nan
+         *
+         *
+         * +可以对两个值进行加法运算，并将结果返回，如果对两个字符串进行加法运算，则会做拼串操作
+         * 会将两个串拼接为一个字符串，并返回
+         * 任何值和字符串做加法运算，都会转换为字符串再运算
+         * -可以对两个值进行减法运算，并将结果返回
+         *
+         * *可以对两个值进行乘法运算
+         * /可以对两个值进行除法运算
+         * %取余数
+         *
+         *
+         *
+         *
+         *
+         */
+
+        var number = Math.floor(Math.random() * 10);
+        for (var i = 1, b = prompt(); i < 10; i++) {
+            if (b == number) {
+
+                if (i < 3) {
+                    alert(`碉堡了`); break
+
+                }
+                else if (i < 6) {
+                    alert(`666`); break
+                }
+                else if (i < 8) {
+                    alert(`猜对了`); break
+                }
+                else {
+                    alert(`终于对了`); break
+                }
+
+            }
+            else if (b < number) {
+                alert(`小了`); b =  prompt()
+            } else if (b > number) {
+                alert(`大了`); b =  prompt()
+
+            } else {
+                alert(`非法字符`); b =  prompt()
+            }
+        }
+
+
+
+
+
+
+
+                            //var ax = 123;
+                            //a = String(ax);
+                            //console.log(typeof a);
+                            //console.log(a);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+    @*<script type="text/javascript" src="~/js/site.js"></script>*@
+</head>
+<body>
+
+    @*<button onclick="alert(`你点我干嘛`)">点我一下</button>
+        <a href=button onclick="javascipt:alert(`让你点你就点`);">你也点我一下</a>*@
+
+
+    @RenderBody()
+</body>
+</html>
